@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: amused-crane-java-springboot
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: amused-crane-java-springboot 
+  name: amused-crane-java-springboot
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: amused-crane-java-springboot
+    weight: 100 
